@@ -11,7 +11,7 @@ import { Color } from '../enums/Color';
 export class AppComponent {
 
   companyName: string = 'РУМТИБЕТ';
-  
+
   constructor() {
   this.saveDateLastVisit();
   }
@@ -31,5 +31,5 @@ export class AppComponent {
     count++;
     localStorage.setItem('visit-count', count.toString());
   }
-
+  
 }
