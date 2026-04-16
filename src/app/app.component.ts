@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import './training';
+import { Color } from '../enums/Color';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +10,26 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+  companyName: string = 'РУМТИБЕТ';
+
+  constructor() {
+  this.saveDateLastVisit();
+  }
+
+  isPrimaryColor(color: Color): boolean {
+    const primaryColors: Color[]= [Color.RED, Color.GREEN, Color.BLUE];
+    return primaryColors.includes(color);
+  }
+
+  saveDateLastVisit(): void {
+    const currentDate: string = new Date().toISOString();
+    localStorage.setItem('last-visit', currentDate);
+  }
+
+  saveVisitCount(): void {
+    let count: number = Number(localStorage.getItem('visit-Count')) || 0;
+    count++;
+    localStorage.setItem('visit-count', count.toString());
+  }
+  
 }
